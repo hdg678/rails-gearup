@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class EquipmentsController < ApplicationController
+  def index
+  end
 
   def show
   end
