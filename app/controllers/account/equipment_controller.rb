@@ -22,12 +22,14 @@ class Account::EquipmentController < Account::AccountController
   end
 
   def edit
-    @equipment = Equipment.find(params[:id])
+    @equipment = current_user.equipment.find(params[:id])
   end
 
   def update
-    @equipment = current_user.equipment.update(equipment_params)
-    if @equipment.save
+    @equipment = current_user.equipment.find(params[:id])
+
+    if @equipment.update(equipment_params)
+      @equipment.save
       redirect_to account_equipment_index_path
     else
       render :edit
@@ -46,6 +48,7 @@ class Account::EquipmentController < Account::AccountController
   end
 
   def equipment_params
-    params.require(:equipment).permit(:title, :description, :category, :price, :instructions)
+    params.require(:equipment).permit(:title, :description, :category, :price,
+      :instructions, pictures: [])
   end
 end
