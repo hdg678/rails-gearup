@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Profile settings</h1>
+  <%= simple_form_for current_user, url: account_profile_path do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= link_to "Cancel", "#", class: "btn btn-default" %>
+  <% end %>
+</div>
