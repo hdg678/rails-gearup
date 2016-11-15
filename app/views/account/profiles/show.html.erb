@@ -1,6 +1,10 @@
 <div class="container">
   <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <%= cl_image_tag current_user.profile_pic.path, class: "avatar-large" %>
+  <% if current_user.profile_pic? %>
+    <%= cl_image_tag current_user.profile_pic.path, class: "avatar-large"%>
+  <% else %>
+    <%= image_tag "blank-avatar.png", class: "avatar-large" %>
+  <% end %>
   <p> Email: <%= current_user.email %></p>
   <p>My equipement offers:</p>
   <ul>
