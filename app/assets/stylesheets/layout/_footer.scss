@@ -21,13 +21,20 @@
   border-right: 1px solid #338CD2;
   border-left: 1px solid #338CD2;
   padding: 10px 130px;
+  img {
+    margin: 25px 20px;
+  }
 }
 
 .footer-right {
   list-style-type: none;
-  p {
+  .text {
     font-size: 15px;
     font-style: italic;
+    margin: 30px 50px 0px 50px;
+    p {
+      margin: 2px;
+    }
   }
 }
 
