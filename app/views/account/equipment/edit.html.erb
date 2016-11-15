@@ -6,7 +6,6 @@
   <%= f.input :category %>
   <%= f.input :instructions %>
   <%= f.input :price %>
-  <%= f.input :pictures, as: :attachinary %>
   <% if @equipment.pictures.any? %>
     <% else %>
       <%= f.input :pictures, as: :attachinary %>
