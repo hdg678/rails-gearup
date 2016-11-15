@@ -6,15 +6,15 @@
   <%= f.input :category %>
   <%= f.input :instructions %>
   <%= f.input :price %>
+
   <% if @equipment.pictures.any? %>
-
-
     <% else %>
       <%= f.input :pictures, as: :attachinary %>
     <% end %>
 
   <%= f.button :submit, class: "btn btn-primary" %>
-  <%= link_to "Cancel", "#", class: "btn btn-default" %>
+  <%= link_to "Cancel", account_equipment_index_path, class: "btn btn-default"%>
+  <%= link_to "Remove", account_equipment_path(@equipment), method: 'delete', class: "btn btn-danger"%>
   <% end %>
 </div>
 
