@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard'
 
-  resources :users do
-    resources :equipments
+  namespace :account do
+    resources :equipment
     resources :bookings
   end
 end
