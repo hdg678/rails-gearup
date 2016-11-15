@@ -14,6 +14,6 @@ class Account::ProfilesController < Account::AccountController
   private
 
   def user_params
-    params.require(:users).permit(:first_name, :last_name, :category, :price, :instructions)
+    params.require(:user).permit(:first_name, :last_name, :email)
   end
 end
