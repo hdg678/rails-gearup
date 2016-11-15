@@ -5,5 +5,5 @@
   <p>Category: <%= @equipment.category %></p>
   <p>Price: $<%= @equipment.price %></p>
 
-  <h2><%= @equipment.user.first_name %> <%= @equipment.user.last_name %></h2>
+  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
 </div>
