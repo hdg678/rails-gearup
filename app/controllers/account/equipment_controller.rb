@@ -22,12 +22,21 @@ class Account::EquipmentController < Account::AccountController
   end
 
   def edit
+    @equipment = Equipment.find(params[:id])
   end
 
   def update
+    @equipment = current_user.equipment.update(equipment_params)
+    if @equipment.save
+      redirect_to account_equipment_index_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @equipment = Equipment.find(params[:id])
+    @equipment.destroy
   end
 
   private
