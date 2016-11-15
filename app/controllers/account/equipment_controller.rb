@@ -1,7 +1,8 @@
-class EquipmentsController < ApplicationController
+class Account::EquipmentController < Account::AccountController
   before_action :get_equipment, only: [:show, :update, :destroy]
+
   def index
-    @equipments = Equipment.all
+    @all_equipment = current_user.equipment
   end
 
   def show
@@ -12,7 +13,13 @@ class EquipmentsController < ApplicationController
   end
 
   def create
-    @equipment = Equipment.create(equipment_params)
+    @equipment = current_user.equipment.create(equipment_params)
+
+    if @equipment.save
+      redirect_to account_equipment_index_path
+    else
+      render :new
+    end
   end
 
   def edit
