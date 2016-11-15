@@ -1,0 +1,10 @@
+<div class="container">
+  <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+  <p> Email: <%= current_user.email %></p>
+  <p>My equipement offers:</p>
+  <ul>
+  <% current_user.equipment.each do |equipment| %>
+    <li><%= equipment.title %> ($<%= equipment.price %>)</li>
+  </ul>
+  <% end %>
+</div>
