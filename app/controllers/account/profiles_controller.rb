@@ -8,7 +8,11 @@ class Account::ProfilesController < Account::AccountController
   end
 
   def update
-    @user = current_user.update(user_params)
+    if current_user.update(user_params)
+      redirect_to account_profile_path
+    else
+      render :edit
+    end
   end
 
   private
