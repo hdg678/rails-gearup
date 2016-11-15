@@ -4,6 +4,12 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :email %>
+    <% if current_user.profile_pic? %>
+      <%= cl_image_tag current_user.profile_pic.path, width: 300, height: 200, crop: :fill, class: "avatar" %>
+    <% else %>
+      <%= f.input :profile_pic, as: :attachinary %>
+      <%= f.submit "Add photo", class: "btn btn-primary btn-xs"%>
+    <% end %>
   <%= f.button :submit, class: "btn btn-primary" %>
   <%= link_to "Cancel", "#", class: "btn btn-default" %>
   <% end %>
