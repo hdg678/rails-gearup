@@ -1,2 +1,10 @@
-<h1>Equipments#index</h1>
-<p>Find me in app/views/equipments/index.html.erb</p>
+<h1>Equipments</h1>
+<% @equipments.each do |equipment| %>
+<div class="card">
+<h3><%= equipment.title %></h3>
+  <p>Description: <%= equipment.description %></p>
+  <p>Instructions: <%= equipment.instructions %></p>
+  <p>Category: <%= equipment.category %></p>
+  <p>Price: $<%= equipment.price %></p>
+</div>
+<% end %>

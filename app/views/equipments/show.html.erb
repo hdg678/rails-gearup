@@ -1,2 +1,9 @@
-<h1>Equipments#show</h1>
-<p>Find me in app/views/equipments/show.html.erb</p>
+<div class="container">
+  <h1><%= @equipment.title %></h1>
+  <p>Description: <%= @equipment.description %></p>
+  <p>Instructions: <%= @equipment.instructions %></p>
+  <p>Category: <%= @equipment.category %></p>
+  <p>Price: $<%= @equipment.price %></p>
+
+  <h2><%= @equipment.user.first_name %> <%= @equipment.user.last_name %></h2>
+</div>
