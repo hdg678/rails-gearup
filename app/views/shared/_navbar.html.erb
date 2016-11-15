@@ -1,8 +1,9 @@
 <div class="navbar-wagon navbar-wagon-fixed">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
-  </a>
+  <% end %>
+
   <form action="" class="navbar-wagon-search">
     <input type="text" class="navbar-wagon-search-input" placeholder="Enter city">
     <button type="submit" class="navbar-wagon-search-btn">
@@ -13,10 +14,10 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">My Equipment</a>
+    <%= link_to "My Equipment", account_equipment_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
+    <%= link_to "Bookings", account_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Notification link-->
     <a href="" class="navbar-wagon-item navbar-wagon-link">
@@ -39,7 +40,7 @@
     </div>
 
     <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Rent My Equipment</a>
+    <%= link_to "Rent My Equipment", new_account_equipment_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
