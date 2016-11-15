@@ -6,6 +6,13 @@
   <%= f.input :category %>
   <%= f.input :instructions %>
   <%= f.input :price %>
+  <% if @equipment.pictures.any? %>
+
+
+    <% else %>
+      <%= f.input :pictures, as: :attachinary %>
+    <% end %>
+
   <%= f.button :submit, class: "btn btn-primary" %>
   <%= link_to "Cancel", "#", class: "btn btn-default" %>
   <% end %>
