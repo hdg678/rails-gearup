@@ -39,6 +39,7 @@ class Account::EquipmentController < Account::AccountController
   def destroy
     @equipment = Equipment.find(params[:id])
     @equipment.destroy
+    redirect_to account_equipment_index_path
   end
 
   private
