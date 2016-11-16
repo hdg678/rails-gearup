@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <% if current_user.profile_pic? %>
-    <%= cl_image_tag current_user.profile_pic.path, class: "avatar-large"%>
+  <% if current_user.profile_pic %>
+    <%= cl_image_tag(current_user.profile_pic.path, :crop => "fill", :width => 150, :height => 150, class: "avatar-large") %>
   <% else %>
     <%= image_tag "blank-avatar.png", class: "avatar-large" %>
   <% end %>

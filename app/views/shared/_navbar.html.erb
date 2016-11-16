@@ -31,7 +31,7 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if current_user.profile_pic? %>
-        <%= cl_image_tag current_user.profile_pic.path, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= cl_image_tag current_user.profile_pic.path, crop: :fill, width: 150, height: 150, class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
         <%= image_tag "blank-avatar.png", class: "avatar-bordered dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% end %>
