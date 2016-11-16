@@ -49,7 +49,7 @@ class Account::EquipmentController < Account::AccountController
   end
 
   def equipment_params
-    params.require(:equipment).permit(:title, :description, :category, :price,
+    params.require(:equipment).permit(:address, :title, :description, :category, :price,
       :instructions, pictures: [])
   end
 end
