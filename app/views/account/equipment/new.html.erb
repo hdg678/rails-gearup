@@ -1,12 +1,15 @@
-<div class="container">
+<div class="form-container">
   <h1>New equipment</h1>
   <%= simple_form_for [:account, @equipment] do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :instructions %>
+  <%= f.input :category, collection: Equipment::CATEGORIES%>
   <%= f.input :price %>
   <%= f.input :address %>
+  <% if @equipment.pictures.any? %>
+  <% else %>
+  <%= f.input :pictures, as: :attachinary %>
+  <% end %>
   <%= f.button :submit, class: "btn btn-primary" %>
   <%= link_to "Cancel", account_equipment_index_path, class: "btn btn-default"%>
   <% end %>
