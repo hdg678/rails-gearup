@@ -8,4 +8,8 @@ class EquipmentController < ApplicationController
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
+
+  def show
+
+  end
 end
