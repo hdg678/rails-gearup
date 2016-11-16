@@ -5,7 +5,9 @@
   justify-content: space-around;
   color: white;
   padding: 20px;
+  align-items: baseline;
   h4 {
+    margin-top: 0px
   }
 }
 
@@ -22,7 +24,7 @@
   border-left: 1px solid #338CD2;
   padding: 10px 130px;
   img {
-    margin: 25px 20px;
+    margin: 15px 20px 0px 20px;
   }
 }
 
@@ -30,8 +32,9 @@
   list-style-type: none;
   .text {
     font-size: 15px;
-    font-style: italic;
-    margin: 30px 50px 0px 50px;
+    font-style: inherit;
+    font-weight: 100;
+    margin: 20px 50px 0px 50px;
     p {
       margin: 2px;
     }
