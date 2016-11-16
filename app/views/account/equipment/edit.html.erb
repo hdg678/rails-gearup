@@ -1,20 +1,22 @@
-<div class="container">
-  <h1>Edit equipment</h1>
+<div class="form-container">
+<h3>Edit <%= @equipment.title %>
+  <%= link_to account_equipment_path(@equipment), method: 'delete', class: "text-danger" do %>
+  <i class="fa fa-trash" aria-hidden="true"></i>
+  <% end %>
+</h3>
   <%= simple_form_for [:account, @equipment] do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :category, collection: Equipment::CATEGORIES %>
-  <%= f.input :instructions %>
   <%= f.input :price %>
   <%= f.input :address %>
   <% if @equipment.pictures.any? %>
-    <% else %>
-      <%= f.input :pictures, as: :attachinary %>
-    <% end %>
+  <% else %>
+  <%= f.input :pictures, as: :attachinary %>
+  <% end %>
 
   <%= f.button :submit, class: "btn btn-primary" %>
   <%= link_to "Cancel", account_equipment_index_path, class: "btn btn-default"%>
-  <%= link_to "Remove", account_equipment_path(@equipment), method: 'delete', class: "btn btn-danger"%>
   <% end %>
 </div>
 

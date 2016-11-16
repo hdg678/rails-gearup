@@ -1,0 +1,137 @@
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  margin: 20px;
+  ul {
+    display: none;
+  }
+  i {
+    display: none;
+  }
+  p {
+    display: none;
+    font-size: 10px;
+  }
+}
+
+.card:hover {
+  ul {
+    display: block;
+  }
+  i {
+    display: inline-block;
+  }
+  p {
+    display: block
+  }
+  .card-new i {
+    color: white;
+  }
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-rating {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.25em;
+  i {
+    color: #FFD700;
+  }
+}
+.card-description {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 13px;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
+}
+
+.card-new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    display:inline-block;
+    color: #E6E6E6;
+    font-size: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.photo {
+  margin: 10px auto;
+
+}
+
+fieldset {
+  margin: 10px auto;
+  padding: 10px;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating-container {
+  display: inline-block;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }

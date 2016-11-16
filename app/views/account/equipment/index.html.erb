@@ -1,16 +1,34 @@
-<h1>Equipments</h1>
-<%= link_to "add item", new_account_equipment_path, class: "btn btn-default"%>
-<% @all_equipment.each do |equipment| %>
-<div class="card">
-<h3><%= equipment.title %></h3>
-  <p>Description: <%= equipment.description %></p>
-  <p>Instructions: <%= equipment.instructions %></p>
-  <p>Category: <%= equipment.category %></p>
-  <p>Price: $<%= equipment.price %></p>
-  <div> <% equipment.pictures.each do |picture| %>
-    <%= cl_image_tag picture.path, class: "avatar-large" %>
-    <% end %>
+<div class="container-fluid text-center">
+  <div class="title">
+    <h4>My <%= image_tag("gear.png") %></h4>
+  </div>
+  <div class="container cards">
+    <div class="row">
+      <% @all_equipment.each do |equipment| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(
+        <% if equipment.pictures? %>
+          <%= cl_image_path equipment.pictures.first.path, height: 150, width: 250, crop: :fill %>
+          <% else %>
+          <%= image_path "background.jpg" %>
+          <% end %>
+        );">
+          <div class="card-rating text-center">
+          </div>
+          <div class="card-description">
+            <h2><%= equipment.title %></h2>
+            <p><%= equipment.description %></p>
+          </div>
+          <%= link_to '', account_equipment_path(equipment), class: 'card-link' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <div class="card card-new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <%= link_to '', new_account_equipment_path, class: "card-link" %>
+    </div>
   </div>
 </div>
-  <%= link_to "edit", edit_account_equipment_path(equipment), class: "btn btn-default"%>
-<% end %>
