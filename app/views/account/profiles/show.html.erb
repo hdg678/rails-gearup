@@ -1,15 +1,42 @@
-<div class="container">
-  <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <% if current_user.profile_pic %>
-    <%= cl_image_tag(current_user.profile_pic.path, :crop => "fill", :width => 150, :height => 150, class: "avatar-large") %>
-  <% else %>
-    <%= image_tag "blank-avatar.png", class: "avatar-large" %>
-  <% end %>
-  <p> Email: <%= current_user.email %></p>
-  <p>My equipement offers:</p>
-  <ul>
-  <% current_user.equipment.each do |equipment| %>
-    <li><%= equipment.title %> ($<%= equipment.price %>)</li>
-  </ul>
-  <% end %>
+<div class="profile-page-container">
+  <div class="profile-content">
+    <div class="profile-intro">
+    <div class="profile-name text-center">
+      <h1><%= current_user.first_name %></h1>
+      <h1><%= current_user.last_name %></h1>
+    </div>
+    <div class="edit-profile">
+    <%= link_to edit_account_profile_path do %>
+      <i class="fa fa-wrench"></i>
+    <% end %>
+    </div>
+    <% if current_user.profile_pic %>
+    <%= cl_image_tag(current_user.profile_pic.path, :crop => "fill", :width => 150, :height => 150, class: "avatar-square profile-pic") %>
+    <% else %>
+    <%= image_tag "blank-avatar.png", class: "avatar-square profile-pic" %>
+    <% end %>
+    </div>
+    <div class="profile-description">
+      <p> Email: <%= current_user.email %></p>
+      <p> Member since : <%= (current_user.created_at) %></p>
+    </div>
+  </div>
+
+
+  <div class="equipment-content">
+    <p>My equipement offers:</p>
+    <ul>
+      <% current_user.equipment.each do |equipment| %>
+      <li><%= equipment.title %> ($<%= equipment.price %>)</li>
+    </ul>
+    <% end %>
+  </div>
+  <div class="bookings-content">
+    <p>My bookings:</p>
+    <ul>
+      <% current_user.equipment.each do |equipment| %>
+      <li><%= equipment.title %> ($<%= equipment.price %>)</li>
+    </ul>
+    <% end %>
+  </div>
 </div>
