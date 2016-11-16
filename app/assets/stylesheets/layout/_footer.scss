@@ -1,61 +1,42 @@
-// Your footer style
-.footer-container{
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
-  transition: all 0.3s ease;
+.footer-container {
+  background-color: #276CA2;
   display: flex;
-  height: 95px;
-  padding: 0px 30px;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #338CD2
-}
-.small-icon{
-  font-size: 20px;
-  text-decoration: none;
-  list-style: none;
-  float: left;
-  padding: 0px 20px 0px ;
-  color: #FCFCFC;
-  cursor: pointer;
-
-}
-
-.footer-content{
-  font-size: 13px;
-  flex: 0 1 auto;
-  cursor: pointer;
-  padding: 0 20px;
-  color: #FCFCFC;
-}
-
-.footer-right {
-  display: flex;
-  align-items: right;
-  justify-content: space-between;
-
-  ul {
-    list-style: none;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+  padding: 20px;
+  h4 {
   }
 }
 
 .footer-left {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  list-style-type: none;
+  i {
+    font-size: 35px;
+    margin: 25px 20px;
+  }
 }
 
-
-.footer-content:hover{
-  color: #C2B8DD;
-  transition: .3s, ease;
+.footer-middle {
+  border-right: 1px solid #338CD2;
+  border-left: 1px solid #338CD2;
+  padding: 10px 130px;
+  img {
+    margin: 25px 20px;
+  }
 }
 
-.small-icon :hover{
-  color:#C2B8DD;
-  transition: .3s, ease;
+.footer-right {
+  list-style-type: none;
+  .text {
+    font-size: 15px;
+    font-style: italic;
+    margin: 30px 50px 0px 50px;
+    p {
+      margin: 2px;
+    }
+  }
 }
-
 
 
 
