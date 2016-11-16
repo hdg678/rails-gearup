@@ -1,13 +1,17 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= image_tag "logo.png", class: "nav-logo" %>
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= image_tag "logo.png" %>
+  <% end %>
 
-<%= form_tag equipment_index_path, method: :get, class: "banner-wagon-search" do %>
-          <input stype="text" name="address" class="banner-wagon-search-input" placeholder="eg: London">
-          <button type="submit" class="banner-wagon-search-btn" label="Search">
-            <i class="fa fa-search"></i>
-          </button>
-        <% end %>
+  <%= form_tag equipment_index_path, method: :get, class: "navbar-wagon-search" do %>
+  <input stype="text" name="address" class="navbar-wagon-search-input" placeholder="eg: London">
+  <button type="submit" class="navbar-wagon-search-btn" label="Search">
+    <i class="fa fa-search"></i>
+  </button>
+  <% end %>
+
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
