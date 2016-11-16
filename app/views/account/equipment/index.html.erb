@@ -5,25 +5,25 @@
   <div class="container cards">
     <div class="row">
       <% @all_equipment.each do |equipment| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(
           <% if equipment.pictures? %>
-            <%= cl_image_path equipment.pictures.first.path, height: 150, width: 250, crop: :fill %>
-            <% else %>
-            <%= image_path "background.jpg" %>
-            <% end %>
+          <%= cl_image_path equipment.pictures.first.path, height: 150, width: 250, crop: :fill %>
+          <% else %>
+          <%= image_path "background.jpg" %>
+          <% end %>
           );">
-            <div class="card-rating text-center">
-            </div>
-            <div class="card-description">
-              <h2><%= equipment.title %></h2>
-              <p><%= equipment.description %></p>
-              <p>Category: <%= equipment.category %></p>
-              <p>Price: $<%= equipment.price %></p>
-            </div>
-            <%= link_to '', account_equipment_path(equipment), class: 'card-link' %>
+          <div class="card-rating text-center">
           </div>
+          <div class="card-description">
+            <h2><%= equipment.title %></h2>
+            <p><%= equipment.description %></p>
+            <p>Category: <%= equipment.category %></p>
+            <p>Price: $<%= equipment.price %></p>
+          </div>
+          <%= link_to '', account_equipment_path(equipment), class: 'card-link' %>
         </div>
+      </div>
       <% end %>
       <div class="col-xs-12 col-sm-4">
         <div class="card card-new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">

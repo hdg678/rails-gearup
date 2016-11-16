@@ -1,9 +1,11 @@
 <div class="container">
-  <h1><%= @equipment.title %></h1>
+  <h1><%= @equipment.title %><%= link_to edit_account_equipment_path do %>
+  <i class="fa fa-wrench"></i>
+  <% end %>
+  </h1>
   <p>Description: <%= @equipment.description %></p>
   <p>Instructions: <%= @equipment.instructions %></p>
   <p>Category: <%= @equipment.category %></p>
   <p>Price: $<%= @equipment.price %></p>
-
   <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
 </div>
