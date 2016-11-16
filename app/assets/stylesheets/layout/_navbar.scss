@@ -7,7 +7,7 @@
   height: 70px;
   padding: 0px 30px;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 /* Optional class to fix the navbar on top */
@@ -22,10 +22,12 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
+  margin-right: auto;
 }
 
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
+  margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
