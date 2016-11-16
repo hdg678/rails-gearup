@@ -18,6 +18,8 @@
             <div class="card-description">
               <h2><%= equipment.title %></h2>
               <p><%= equipment.description %></p>
+              <p>Category: <%= equipment.category %></p>
+              <p>Price: $<%= equipment.price %></p>
             </div>
             <%= link_to '', account_equipment_path(equipment), class: 'card-link' %>
           </div>
