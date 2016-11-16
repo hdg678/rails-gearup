@@ -6,14 +6,54 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# categories = Category.create([
-#     {
-#     name: "Cycling"
-#     },
-#     {
-#     name: "Tennis"
-#     },
-#     {
-#     name: "Football"
-#     }
-#     ])
+  categories = Category.create([
+    {
+    name: "Cycling"
+    },
+    {
+    name: "Ball sports"
+    },
+    {
+    name: "Catch sports"
+    },
+    {
+    name: "Winter sports"
+    },
+    {
+    name: "Water sports"
+    },
+    {
+    name: "Archery"
+    },
+    {
+    name: "Board sports"
+    },
+    {
+    name: "Climbing"
+    },
+    {
+    name: "Cue sports"
+    },
+    {
+    name: "Fishing"
+    },
+    {
+    name: "Combat sports"
+    },
+    {
+    name: "Gymnastics"
+    },
+    {
+    name: "Sailing"
+    },
+    {
+    name: "Trekking"
+    },
+    {
+    name: "Motorized sports"
+    },
+    {
+    name: "Golf"
+    }
+    ])
+
