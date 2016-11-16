@@ -31,7 +31,7 @@
             <div class="col-xs-12 col-sm-6">
               <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(
               <% if equipment.pictures? %>
-                <%= cl_image_path equipment.pictures.first.path, height: 150, width: 250, crop: :fill %>
+                <%= cl_image_path equipment.pictures.first.path, height: 400, width: 600, crop: :fill %>
                 <% else %>
                 <%= image_path "background.jpg" %>
                 <% end %>

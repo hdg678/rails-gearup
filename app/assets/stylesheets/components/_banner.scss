@@ -19,6 +19,15 @@
   margin-bottom: 20px;
 }
 
+.product-banner {
+  color: white;
+  text-align: center;
+  height: 50vh;
+  background-size: cover !important;
+  display: flex;
+  justify-content: center;
+}
+
 .banner-content {
   margin-top: 150px;
   img {
