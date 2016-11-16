@@ -6,6 +6,7 @@
   color: white;
   padding: 20px;
   align-items: baseline;
+  margin-top: 5px;
   h4 {
     margin-top: 0px
   }
@@ -30,13 +31,21 @@
 
 .footer-right {
   list-style-type: none;
+  p {
+    margin: 0;
+  }
   .text {
     font-size: 15px;
     font-style: inherit;
     font-weight: 100;
     margin: 20px 50px 0px 50px;
-    p {
+    a {
       margin: 2px;
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #338CD2
     }
   }
 }
