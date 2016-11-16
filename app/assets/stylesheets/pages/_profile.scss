@@ -1,0 +1,56 @@
+.profile-page-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-content {
+  background-color: #F0F8FF;
+  margin: 15px;
+  border-radius: 8px;
+  border: 0.5px solid #D2D9E2;
+  width: 25em;
+  height: 25em;
+}
+
+.profile-intro {
+  position: relative;
+}
+.profile-pic {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 110px;
+  height: 110px;
+}
+.profile-name {
+  position: absolute;
+  top: 15px;
+  left: 185px;
+  h1 {
+    font-size: 35px;
+    margin-top: 10px;
+  }
+}
+
+.edit-profile {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  font-size: 25px;
+}
+
+
+.profile-description {
+  position: absolute;
+  top: 270px;
+  left: 30px;
+}
+
+
+.equipment-content {
+
+}
+
+.bookings-content {
+
+}
