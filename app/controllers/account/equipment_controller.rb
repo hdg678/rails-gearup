@@ -41,12 +41,6 @@ class Account::EquipmentController < Account::AccountController
     @equipment.destroy
     redirect_to account_equipment_index_path
   end
-
-  def search
-    Equipment.search_by_location(:address)
-
-  end
-
   private
 
   def get_equipment
