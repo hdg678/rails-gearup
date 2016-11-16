@@ -8,7 +8,7 @@
       <p>Instructions: <%= @equipment.instructions %></p>
       <p>Category: <%= @equipment.category %></p>
       <p>Price: $<%= @equipment.price %></p>
-      <p>Owner: <%= current_user.first_name %> <%= current_user.last_name %></p>
+      <p>Owner: <%= @equipment.user.first_name %> <%= @equipment.user.last_name %></p>
     </div>
     <div class="col-xs-6">
       <% @equipment.pictures.each do |picture| %>
