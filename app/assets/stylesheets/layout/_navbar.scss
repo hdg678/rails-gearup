@@ -73,6 +73,7 @@
   display: flex;
   justify-content: flex-end;
   padding: 0 10px;
+  margin-left: 20px;
   position: relative;
 }
 .navbar-wagon-search-btn {
@@ -81,10 +82,15 @@
   border: none;
   background: transparent;
   position: absolute;
-  right: 14px;
+  font-size: 20px;
+  right: -20px;
   top: -2px;
   z-index: 1;
+  :hover {
+    color: #338CD2;
+  }
 }
+
 .navbar-wagon-search-input {
   flex: 0 1 300px;
   transition: all 0.15s ease;
@@ -99,12 +105,14 @@
 }
 
 .navbar-wagon-search-select {
+  margin-left: -8px;
+  background-color: white;
   transition: all 0.15s ease;
   line-height: 40px;
   font-weight: lighter;
   color: #666666;
   border: 1px solid #E6E6E6;
-  border-left-radius: 0px ;
+  border-top-left-radius: 8px;
   border-radius: 5px;
   padding: 0 10px;
   font-size: 14px;
