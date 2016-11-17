@@ -1,32 +1,32 @@
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="background-color: whitesmoke">
   <div class="equipment-index-title">
     <h2>My <%= image_tag("gear.png") %></h2>
   </div>
-  <div class="container cards">
+  <div class="cards">
     <div class="row">
-      <% @all_equipment.each do |equipment| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card card-filter" style="background-image: url(
-          <% if equipment.pictures? %>
-          <%= cl_image_path equipment.pictures.first.path, height: 400, width: 600, crop: :fill %>
-          <% else %>
-          <%= image_path "background.jpg" %>
-          <% end %>
-          );">
-          <div class="card-rating text-center">
+    <% current_user.equipment.each do |equipment| %>
+      <div class="col-xs-6 col-sm-3">
+        <div class="card">
+          <div class="card-picture filter" style="background-image: url(
+            <% if equipment.pictures? %>
+            <%= cl_image_path equipment.pictures.first.path, height: 400, width: 600, crop: :fill; %>
+            <% else %>
+            <%= image_path "background.jpg" %>
+            <% end %>">
+            <p><%= equipment.category %></p>
           </div>
-          <div class="card-description">
+          <div class="card-title">
             <h2><%= equipment.title %></h2>
-            <p><%= equipment.description %></p>
-            <p>Category: <%= equipment.category %></p>
-            <p>Price: $<%= equipment.price %></p>
           </div>
-          <%= link_to '', account_equipment_path(equipment), class: 'card-link' %>
+          <div class="card-price">
+            <p>$<%= equipment.price %></p>
+          </div>
+          <%= link_to '', equipment_path(equipment), class: 'card-link' %>
         </div>
       </div>
       <% end %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card card-new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+      <div class="col-xs-6 col-sm-3">
+        <div class="card card-new" style="background-color: white">
           <i class="fa fa-plus" aria-hidden="true"></i>
           <%= link_to '', new_account_equipment_path, class: "card-link" %>
         </div>
