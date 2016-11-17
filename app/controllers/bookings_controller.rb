@@ -8,8 +8,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.create(booking_params)
-    if Booking.save
-      redirect_to equipment_index_path
+    @equipment = Equipment.find(params[:equipment_id])
+    if @booking.save
+      redirect_to equipment_bookings_path(@equipment)
     else
       render :new
     end
