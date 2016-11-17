@@ -1,4 +1,7 @@
 <div class="container-fluid" style="background-color: whitesmoke">
+<div class="equipment-index-title text-center">
+    <h2>Available <%= image_tag("gear.png") %> in <strong style="color: #338CD2;"><%= params[:address].capitalize %></strong></h2>
+  </div>
   <div class="row">
     <div class="col-sm-5">
       <div id="map">
@@ -22,17 +25,14 @@
       </div>
     </div>
     <div class="col-sm-7 text-center">
-      <div class="equipment-index-title">
-        <h2>Available <%= image_tag("gear.png") %></h2>
-      </div>
       <div class="cards">
         <div class="row">
           <% @equipment.each do |equipment| %>
           <div class="col-xs-12 col-sm-6">
             <div class="card">
-            <% if equipment.user.profile_pic %>
+              <% if equipment.user.profile_pic %>
               <%= cl_image_tag equipment.user.profile_pic.path, height: 100, width: 100, crop: :fill, class: "avatar-bordered"; %>
-            <% end %>
+              <% end %>
 
               <div class="card-picture filter" style="background-image: url(
                 <% if equipment.pictures? %>
