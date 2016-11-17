@@ -1,9 +1,6 @@
 class BookingsController < ApplicationController
 
-  # before_action: :find_equipment
-
-  def index
-    @all_bookings = current_user.bookings
+  def show
   end
 
   def new
@@ -11,20 +8,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create(booking_params)
     @equipment = Equipment.find(params[:equipment_id])
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.equipment = @equipment
     if @booking.save
-      redirect_to equipment_bookings_path(@equipment)
+      redirect_to dashboard_path
     else
       render :new
     end
   end
-
-  # def edit
-  # end
-
-  # def update
-  # end
 
   def destroy
     @booking = Booking.find(params[:id])
@@ -35,12 +28,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:description, :equipment_id)
+    params.require(:booking).permit(:pickup, :dropoff)
   end
-
-  # def find_equipment
-  #   @equipment = Equipment.find(params[:equipment_id]
-  # end
-
 end
 
