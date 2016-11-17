@@ -7,9 +7,10 @@
   <%= form_tag equipment_index_path, method: :get, class: "navbar-wagon-search" do %>
   <input type="text" name="address" class="navbar-wagon-search-input" placeholder="eg: London">
   <select id="category" name="category" class="navbar-wagon-search-select" value="Category">
-  <%= Equipment::CATEGORIES.each do |category| %>
+    <option value="">Category</option>
+    <%= Equipment::CATEGORIES.each do |category| %>
     <option <%= params[:category] == category ? "selected" : nil %>><%= category %></option>
-  <% end %>
+    <% end %>
   </select>
   <button type="submit" class="navbar-wagon-search-btn" label="Search">
     <i class="fa fa-search"></i>

@@ -1,8 +1,8 @@
 class EquipmentController < ApplicationController
   def index
-    if params[:category] == "All" && params[:address] == ""
-      @equipment = Equipment.where(nil)
-    elsif params[:address] != "" && params[:category] == "All"
+    if params[:category] == "" && params[:address] == ""
+      @equipment = Equipment.all
+    elsif params[:address] != "" && params[:category] == ""
       @equipment = Equipment.where(nil).near(params[:address], 30)
     elsif params[:category] != "" && params[:address] == ""
       @equipment = Equipment.where(nil).category(params[:category])
