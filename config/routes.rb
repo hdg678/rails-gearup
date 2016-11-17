@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard'
   resources :equipment, only: [:index, :show]  do
-    resources :bookings, only: [:new, :create, :new]
+    resources :bookings, only: [:new, :create, :index, :show]
   end
 
   # get '/profiles/:id', to: "profiles#show", as: :profile
