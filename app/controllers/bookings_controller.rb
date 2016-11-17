@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.create(booking_params)
     if Booking.save
-      redirect_to root_path
+      redirect_to equipment_index_path
     else
       render :new
     end
