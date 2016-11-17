@@ -10,6 +10,21 @@ class Equipment < ApplicationRecord
 
   scope :category, -> (category) { where category: category }
 
+  def self.search(params)
+    results = all.within_address(params[:address])
+    results = results.with_category(params[:category])
+
+    results
+  end
+
+  def self.within_address(address)
+    address.present? ? near(address, 30) : all
+  end
+
+  def self.with_category(category)
+    category.present? ? category(category) : all
+  end
+
 end
 
 

@@ -1,14 +1,6 @@
 class EquipmentController < ApplicationController
   def index
-    if params[:category] == "" && params[:address] == ""
-      @equipment = Equipment.all
-    elsif params[:address] != "" && params[:category] == ""
-      @equipment = Equipment.where(nil).near(params[:address], 30)
-    elsif params[:category] != "" && params[:address] == ""
-      @equipment = Equipment.where(nil).category(params[:category])
-    else
-      @equipment = Equipment.near(params[:address], 30).category(params[:category])
-    end
+    @equipment = Equipment.search(params)
 
     @hash = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
       marker.lat equipment.latitude
