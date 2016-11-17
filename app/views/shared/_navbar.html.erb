@@ -24,7 +24,7 @@
     <% if user_signed_in? %>
 
     <!-- Text link -->
-    <%= link_to "Bookings", account_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
     <%= link_to "My Gear", account_equipment_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
@@ -80,7 +80,6 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
         <li><%= link_to "Profile", account_profile_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        <li><%= link_to "Bookings", account_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><%= link_to "My Equipment", account_equipment_index_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <% else %>
         <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
