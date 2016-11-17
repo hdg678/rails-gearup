@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard'
-  resources :equipment, only: [:index, :show]
+  resources :equipment, only: [:index, :show]  do
+    resources :bookings, only: [:new, :create, :new]
+  end
 
   # get '/profiles/:id', to: "profiles#show", as: :profile
   # get '/profiles/edit', to: "profiles#edit", as: :edit_profile
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
   namespace :account do
     resource :profile
     resources :equipment
-    resources :bookings
   end
 end
+

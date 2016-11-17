@@ -1,29 +1,35 @@
 class BookingsController < ApplicationController
-  def index
-    # @bookings = @equipment.all
-  end
-
-  def show
-
-  end
 
   def new
 
   end
 
   def create
-    # @booking = @equipment.create(booking_params)
-    # if @equipment.save
-    #   redirect_to booking_index_path
-    # else
-    #   render :new
-    # end
+    @booking = @equipment.create(booking_params)
+    if @equipment.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
-  def edit
+  # def edit
+  # end
+
+  # def update
+  # end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to root_path
   end
 
-  def update
+  private
+
+  def booking_params
+    params.require(:booking).permit(:description, :equipment_id)
   end
 
 end
+
