@@ -1,82 +1,71 @@
+.cards {
+
+}
+
 .card {
   height: 215px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  color: white;
   position: relative;
   margin-bottom: 10px;
   margin-top: 10px;
-  ul {
-    display: none;
-  }
-  i {
-    display: none;
-  }
-  p {
-    display: none;
-    font-size: 10px;
+  border: 0.5px solid #DFE4E4;
+  border-radius: 5px;
+  background-color: white;
+  img {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
   }
 }
 
-.card-filter {
-  position: relative;
-  -webkit-filter: contrast(70%) brightness(90%) saturate(55%);
-  filter: contrast(70%) brightness(90%) saturate(55%);
-}
-.card-filter::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
+.card-picture {
+  background-size: cover !important;
+  height: 150px;
+  width: calc(100% - 20px);
   position: absolute;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  background: -webkit-radial-gradient(50% 50%, circle closest-corner, rgba(168, 223, 193, 0.4) 1, rgba(183, 196, 200, 0.2));
-  background: radial-gradient(50% 50%, circle closest-corner, rgba(168, 223, 193, 0.4) 1, rgba(183, 196, 200, 0.2));
-}
-
-.card:hover {
-  ul {
-    display: block;
-  }
-  i {
-    display: inline-block;
-  }
-  p {
-    display: block
-  }
-  .card-new i {
-    color: white;
-  }
-}
-
-.card-user {
-  position: absolute;
-  right: 10px;
   top: 10px;
-}
-.card-rating {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 1.25em;
-  i {
-    color: #FFD700;
+  left: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  p {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: white;
+    font-weight: 100;
   }
 }
-.card-description {
+
+.card-title {
   position: absolute;
-  top: 0px;
+  bottom: 0px;
   left: 10px;
+  h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
 }
-.card-description h2 {
-  font-size: 24px;
+
+.card-price {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  background-color: #338CD2;
+  color: white;
+  border-radius: 15%;
+  p {
+    margin: 8px;
+  }
 }
-.card-description p {
-  font-size: 13px;
+
+.filter {
+  position: relative;
+  -webkit-filter: contrast(80%) brightness(110%) saturate(80%) grayscale(15%);
+  filter: contrast(80%) brightness(110%) saturate(80%) grayscale(15%);
 }
+
 .card-link {
   position: absolute;
   top: 0;
@@ -84,7 +73,7 @@
   right: 0;
   width: 100%;
   z-index:2;
-  background: black;
+  background: #338CD2;
   opacity: 0;
 }
 .card-link:hover{
@@ -97,14 +86,9 @@
   align-items: center;
   i {
     display:inline-block;
-    color: #E6E6E6;
+    color: #338CD2;
     font-size: 50px;
     padding-left: 10px;
     padding-right: 10px;
   }
-}
-
-.photo {
-  margin: 10px auto;
-
 }
