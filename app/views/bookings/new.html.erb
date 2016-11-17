@@ -1,8 +1,8 @@
 <h1>Book that stuff</h1>
 
- <%= simple_form_for [:equipment, @booking] do |f| %>
+<%= simple_form_for [:equipment, @booking] do |f| %>
   <%= f.input :checkin %>
   <%= f.input :checkout %>
   <%= f.button :submit, class: "btn btn-primary" %>
   <%= link_to "Cancel", equipment_index_path, class: "btn btn-info"%>
-  <% end %>
+<% end %>

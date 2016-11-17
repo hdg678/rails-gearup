@@ -1,0 +1,77 @@
+.product-banner {
+  color: white;
+  text-align: center;
+  height: 60vh;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  img {
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+  }
+  #owner {
+    position: absolute;
+    bottom: 0px;
+    left: 120px;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 25px;
+  }
+}
+
+.product-description {
+  position: relative;
+  #title{
+    font-size: 35px;
+    font-weight: 100;
+  }
+  #description {
+    color: #454849;
+  }
+  #category {
+    position: absolute;
+    top: 12px;
+    right: 0px;
+    color: #95999C;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: 200;
+  }
+  #price {
+    font-size: 22px;
+    font-weight: 100;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+}
+
+.product-booking {
+  padding: 20px;
+  background-color: #E3E7E7;
+  margin: 10px;
+  #book-button {
+    margin: 10px auto;
+  }
+  p {
+    font-weight: 100;
+    font-family: sans-serif;
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+.add-picture {
+  align-self: center;
+  height: 150px;
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: 0.5px solid #DFE4E4;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  font-family: sans-serif;
+}
+

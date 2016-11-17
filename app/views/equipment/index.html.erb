@@ -1,6 +1,12 @@
 <div class="container-fluid" style="background-color: whitesmoke">
 <div class="equipment-index-title text-center">
-    <h2>Available <%= image_tag("gear.png") %> in <strong style="color: #338CD2;"><%= params[:address].capitalize %></strong></h2>
+    <h2>Available <%= image_tag("gear.png") %> in <strong style="color: #338CD2;">
+    <% if params[:address] != "" %>
+    <%= params[:address].capitalize %>
+    <% else %>
+    <%= "the World" %>
+    <% end %>
+    </strong></h2>
   </div>
   <div class="row">
     <div class="col-sm-5">

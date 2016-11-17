@@ -5,24 +5,66 @@
   <%= image_path "background.jpg" %>
   <% end %>
   );">
+  <% if @equipment.user.profile_pic %>
+  <%= cl_image_tag @equipment.user.profile_pic.path, height: 100, width: 100, crop: :fill, class: "avatar-large"; %>
+  <% end %>
+  <p id="owner"><%= @equipment.user.first_name %> <%= @equipment.user.last_name %></p>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <h1><%= @equipment.title %></h1>
-      <p>Description: <%= @equipment.description %></p>
-      <p>Instructions: <%= @equipment.instructions %></p>
-      <p>Category: <%= @equipment.category %></p>
-      <p>Price: $<%= @equipment.price %></p>
-      <p>Owner: <%= @equipment.user.first_name %> <%= @equipment.user.last_name %></p>
+      <div class="product-description">
+        <p id="title"><%= @equipment.title %></p>
+        <p id="description"><%= @equipment.description %></p>
+        <p id= "address">Pick up at <strong><%= @equipment.address %></strong></p>
+        <p id="category"><%= @equipment.category %></p>
+        <p id="price">Daily price: €<%= @equipment.price %></p>
+      </div>
+      <div class="product-map">
+        <div id="map" style="height: 300px;">
+        </div>
+      </div>
     </div>
     <div class="col-xs-6">
-      <% @equipment.pictures.each do |picture| %>
-      <div class="card" style="background-image: url(<%= cl_image_path picture.path, height: 400, width: 600, crop: :fill %>);">
-      </div>
+      <div class="product-booking">
+          <p>Book this <%= @equipment.title %> </p>
+        <%= form_for [@equipment, @equipment.bookings.build], class: 'form form-inline' do |f| %>
+        <div class="input-daterange input-group">
+          <%= f.text_field :checkin, class: 'input-sm form-control datepicker' %>
+          <span class="input-group-addon">to</span>
+          <%= f.text_field :checkout, class: 'input-sm form-control datepicker' %>
+        </div>
+        <%= f.submit "Book now", class: "btn btn-primary", id: "book-button" %>
         <% end %>
       </div>
-        <%= link_to "Book Now", new_equipment_booking_path(@equipment), class: "btn btn-danger"%>
+      <div class="product-pictures text-center">
+        <% @equipment.pictures.each do |picture| %>
+        <a href="<%= cl_image_path picture.path, height: 800, width: 1200, crop: :fill %>" class="swipebox" title="My Caption">
+          <img src="<%= cl_image_path picture.path, height: 200, width: 300, crop: :fill %>" alt="image" style="padding: 4px; margin: 8px; width: 45%;" class="img-thumbnail">
+        </a>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+<script>
+  $(document).ready(function() {
+
+    $('.datepicker').datepicker({todayHighlight: true});
+
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  });
+</script>
+<% end %>
