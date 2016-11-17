@@ -5,7 +5,12 @@
   <% end %>
 
   <%= form_tag equipment_index_path, method: :get, class: "navbar-wagon-search" do %>
-  <input stype="text" name="address" class="navbar-wagon-search-input" placeholder="eg: London">
+  <input type="text" name="address" class="navbar-wagon-search-input" placeholder="eg: London">
+  <select id="category" name="category" class="navbar-wagon-search-select">
+  <%= ["All", "Cycling","Ball sports","Catch sports","Winter sports","Water sports","Archery","Board sports","Climbing","Cue sports","Fishing","Combat sports","Gymnastics","Sailing","Trekking","Motorized sports","Golf"].sort.each do |category| %>
+    <option <%= params[:category] == category ? "selected" : nil %>><%= category %></option>
+  <% end %>
+  </select>
   <button type="submit" class="navbar-wagon-search-btn" label="Search">
     <i class="fa fa-search"></i>
   </button>
@@ -18,16 +23,9 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-    <!-- Notification -->
-    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-    <div class="badge-container">
-      <i class="fa fa-envelope-o"></i>
-      <div class="badge badge-blue">3</div>
-    </div>
-    <% end %>
     <!-- Text link -->
     <%= link_to "Bookings", account_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My Equipment", account_equipment_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My Gear", account_equipment_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
     <!-- Profile picture and dropdown -->
@@ -63,7 +61,7 @@
       </div>
     </div>
     <!-- Button (call-to-action) -->
-    <%= link_to "Post Equipment", new_account_equipment_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to "Add Gear", new_account_equipment_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% else %>
 
