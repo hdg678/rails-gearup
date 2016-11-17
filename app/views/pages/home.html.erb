@@ -3,12 +3,17 @@
       <h1>Travel light with <%= image_tag "longlogo.png" %></h1>
       <p>Rent sports equipment anywhere you go</p>
 
-        <%= form_tag equipment_index_path, method: :get, class: "banner-wagon-search" do %>
-          <input stype="text" name="address" class="banner-wagon-search-input" placeholder="eg: London">
-          <button type="submit" class="banner-wagon-search-btn" label="Search">
-            <i class="fa fa-search"></i>
-          </button>
+      <%= form_tag equipment_index_path, method: :get, class: "banner-wagon-search" do %>
+      <input stype="text" name="address" class="banner-wagon-search-input" placeholder="eg: London">
+      <select id="category" name="category" class="navbar-wagon-search-select">
+        <%= ["All", "Cycling","Ball sports","Catch sports","Winter sports","Water sports","Archery","Board sports","Climbing","Cue sports","Fishing","Combat sports","Gymnastics","Sailing","Trekking","Motorized sports","Golf"].sort.each do |category| %>
+        <option <%= params[:category] == category ? "selected" : nil %>><%= category %></option>
         <% end %>
-      </div>
+      </select>
+      <button type="submit" class="banner-wagon-search-btn" label="Search">
+        <i class="fa fa-search"></i>
+      </button>
+      <% end %>
     </div>
   </div>
+</div>
