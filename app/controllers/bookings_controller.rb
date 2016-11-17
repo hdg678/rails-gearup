@@ -1,12 +1,14 @@
 class BookingsController < ApplicationController
 
-  def new
+  # before_action: :find_equipment
 
+  def new
+    @booking = Booking.new
   end
 
   def create
-    @booking = @equipment.create(booking_params)
-    if @equipment.save
+    @booking = Booking.create(booking_params)
+    if Booking.save
       redirect_to root_path
     else
       render :new
@@ -30,6 +32,10 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:description, :equipment_id)
   end
+
+  # def find_equipment
+  #   @equipment = Equipment.find(params[:equipment_id]
+  # end
 
 end
 

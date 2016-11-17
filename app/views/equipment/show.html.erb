@@ -13,8 +13,9 @@
     <div class="col-xs-6">
       <% @equipment.pictures.each do |picture| %>
       <div class="card" style="background-image: url(<%= cl_image_path picture.path, height: 400, width: 600, crop: :fill %>);">
-        </div>
+      </div>
         <% end %>
       </div>
+        <%= link_to "Book Now", new_equipment_booking_path(@equipment), class: "btn btn-danger"%>
     </div>
   </div>
