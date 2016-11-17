@@ -1,16 +1,1 @@
 <h1>Bookings</h1>
-
-<div class="card">
-<h3><%= equipment.title %></h3>
-  <%= cl_image_tag current_user.profile_pic.path, class: "avatar-large" %>
-    <p>Description: <%= equipment.description %></p>
-    <p>Instructions: <%= equipment.instructions %></p>
-    <p>Category: <%= equipment.category %></p>
-    <p>Price: $<%= equipment.price %></p>
-  <div> <% equipment.pictures.each do |picture| %>
-    <%= cl_image_tag picture.path, class: "avatar-large" %>
-    <% end %>
-  </div>
-</div>
-  <%= link_to "edit", edit_account_equipment_path(equipment), class: "btn btn-default"%>
-<% end %>

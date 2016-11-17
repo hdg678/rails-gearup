@@ -15,7 +15,7 @@ class Account::EquipmentController < Account::AccountController
   def create
     @equipment = current_user.equipment.create(equipment_params)
     if @equipment.save
-      redirect_to account_equipment_index_path
+      redirect_to account_booking_index_path
     else
       render :new
     end
