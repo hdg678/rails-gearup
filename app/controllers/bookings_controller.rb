@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
 
   # before_action: :find_equipment
 
+  def index
+    @all_bookings = current_user.bookings
+  end
+
   def new
     @booking = Booking.new
   end

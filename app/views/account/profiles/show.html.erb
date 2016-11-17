@@ -22,7 +22,6 @@
     </div>
   </div>
 
-
   <div class="equipment-content">
     <p>My equipement offers:</p>
     <ul>
@@ -34,8 +33,8 @@
   <div class="bookings-content">
     <p>My bookings:</p>
     <ul>
-      <% current_user.equipment.each do |equipment| %>
-      <li><%= equipment.title %> ($<%= equipment.price %>)</li>
+      <% current_user.bookings.each do |booking| %>
+      <li><%= booking.pickup %> <%= booking.dropoff %></li>
     </ul>
     <% end %>
   </div>
