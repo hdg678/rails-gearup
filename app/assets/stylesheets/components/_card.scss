@@ -18,6 +18,25 @@
   }
 }
 
+.card-filter {
+  position: relative;
+  -webkit-filter: contrast(70%) brightness(90%) saturate(55%);
+  filter: contrast(70%) brightness(90%) saturate(55%);
+}
+.card-filter::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background: -webkit-radial-gradient(50% 50%, circle closest-corner, rgba(168, 223, 193, 0.4) 1, rgba(183, 196, 200, 0.2));
+  background: radial-gradient(50% 50%, circle closest-corner, rgba(168, 223, 193, 0.4) 1, rgba(183, 196, 200, 0.2));
+}
+
 .card:hover {
   ul {
     display: block;
