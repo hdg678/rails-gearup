@@ -22,6 +22,18 @@
         <p id= "address">Pick up at <strong><%= @equipment.address %></strong></p>
         <p id="category"><%= @equipment.category %></p>
         <p id="price">Daily price: €<%= @equipment.price %></p>
+        <div class="ratings">
+          <p>
+            <% 1.upto(5) do |i| %>
+            <% if i > @equipment.average_stars %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% else %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+            <% end %>
+            (<%= @equipment.reviews.length %> votes)
+          </p>
+        </div>
       </div>
       <div class="product-map">
         <div id="product-map" style="height: 300px;">

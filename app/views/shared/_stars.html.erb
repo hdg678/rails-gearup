@@ -1,0 +1,15 @@
+<div class="card-ratings">
+  <p>
+    <% 1.upto(5) do |i| %>
+    <% if i < equipment.average_stars %>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    <% else %>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <% end %>
+    <% end %>
+    (<%= equipment.reviews.length %> votes)
+  </p>
+</div>
+
+<% 1.upto(5) do |i| %>
+<% if i < equipment.average_stars %>

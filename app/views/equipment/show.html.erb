@@ -9,6 +9,18 @@
   <%= cl_image_tag @equipment.user.profile_pic.path, height: 100, width: 100, crop: :fill, class: "avatar-large"; %>
   <% end %>
   <p id="owner"><%= @equipment.user.first_name %> <%= @equipment.user.last_name %></p>
+  <div class="ratings">
+    <p>
+      <% 1.upto(5) do |i| %>
+      <% if i > @equipment.average_stars %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% else %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+      <% end %>
+      (<%= @equipment.reviews.length %> votes)
+    </p>
+  </div>
 </div>
 <div class="container">
   <div class="row">
@@ -19,6 +31,20 @@
         <p id= "address">Pick up at <strong><%= @equipment.address %></strong></p>
         <p id="category"><%= @equipment.category %></p>
         <p id="price">Daily price: €<%= @equipment.price %></p>
+        <%= simple_form_for [@equipment, Review.new], class: "form-inline" do |f| %>
+        <div class="row" style="display: inline-block;">
+          <fieldset class="rating">
+            <input type="radio" id="star5" name="review[number]" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4" name="review[number]" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3" name="review[number]" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2" name="review[number]" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1" name="review[number]" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+          </fieldset>
+        </div>
+        <div class="row">
+          <%= f.submit "Rate", class: "btn btn-primary btn-xs"%>
+        </div>
+        <% end %>
       </div>
       <div class="product-map">
         <div id="map" style="height: 300px;">

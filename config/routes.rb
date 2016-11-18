@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'review/create'
+
   mount Attachinary::Engine => "/attachinary"
 
   devise_for :users
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   resources :equipment, only: [:index, :show]  do
     resources :bookings, only: [:new, :create, :index]
+    resources :reviews, only: [:create]
   end
 
   resources :bookings, only: [:destroy, :show, :edit, :update]

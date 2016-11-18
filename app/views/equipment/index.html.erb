@@ -12,13 +12,24 @@
     <div class="col-sm-5">
       <div id="map">
       </div>
-      </div>
+    </div>
     <div class="col-sm-7 text-center">
       <div class="cards fixed-cards">
         <div class="row">
           <% @equipment.each do |equipment| %>
           <div class="col-xs-12 col-sm-6">
             <div class="card">
+              <div class="card-ratings">
+                <p>
+                  <% 1.upto(5) do |i| %>
+                  <% if i > equipment.average_stars %>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <% else %>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <% end %>
+                  <% end %>
+                </p>
+              </div>
               <% if equipment.user.profile_pic %>
               <%= cl_image_tag equipment.user.profile_pic.path, height: 100, width: 100, crop: :fill, class: "avatar-bordered"; %>
               <% end %>
@@ -35,7 +46,7 @@
                 <h2><%= equipment.title %></h2>
               </div>
               <div class="card-price">
-                <p>$<%= equipment.price %></p>
+                <p>€<%= equipment.price %></p>
               </div>
               <%= link_to '', equipment_path(equipment), class: 'card-link' %>
             </div>
@@ -61,5 +72,5 @@
         }
       });
     });
-</script>
-<% end %>
+  </script>
+  <% end %>

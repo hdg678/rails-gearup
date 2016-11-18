@@ -11,6 +11,17 @@
     bottom: 10px;
     left: 40px;
   }
+  .ratings {
+    position: absolute;
+    bottom: 0px;
+    right: 140px;
+    p {
+      font-size: 12px;
+      i {
+        font-size: 20px;
+      }
+    }
+  }
   #owner {
     position: absolute;
     bottom: 0px;
@@ -56,6 +67,17 @@
     font-family: sans-serif;
     margin-bottom: 10px;
     text-align: right;
+  }
+  .ratings {
+    text-align: right;
+    font-size: 20px;
+    p {
+      font-size: 12px;
+    }
+    i {
+      color: #D7BB0C;
+      font-size: 20px;
+    }
   }
 }
 
