@@ -6,6 +6,10 @@ class Account::EquipmentController < Account::AccountController
   end
 
   def show
+    @product_hash = Gmaps4rails.build_markers(@equipment) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def new
@@ -15,7 +19,7 @@ class Account::EquipmentController < Account::AccountController
   def create
     @equipment = current_user.equipment.create(equipment_params)
     if @equipment.save
-      redirect_to account_booking_index_path
+      redirect_to account_equipment_index_path, notice: 'Your gear has been posted'
     else
       render :new
     end
@@ -30,7 +34,7 @@ class Account::EquipmentController < Account::AccountController
 
     if @equipment.update(equipment_params)
       @equipment.save
-      redirect_to account_equipment_index_path
+      redirect_to account_equipment_index_path, notice: 'Your gear has been updated'
     else
       render :edit
     end
@@ -39,7 +43,7 @@ class Account::EquipmentController < Account::AccountController
   def destroy
     @equipment = Equipment.find(params[:id])
     @equipment.destroy
-    redirect_to account_equipment_index_path
+    redirect_to account_equipment_index_path, notice: 'Your gear has been deleted'
   end
 
   private

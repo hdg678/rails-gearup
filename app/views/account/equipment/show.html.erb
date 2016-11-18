@@ -9,6 +9,9 @@
   <%= cl_image_tag @equipment.user.profile_pic.path, height: 100, width: 100, crop: :fill, class: "avatar-large"; %>
   <% end %>
   <p id="owner"><%= @equipment.user.first_name %> <%= @equipment.user.last_name %></p>
+  <%= link_to(edit_account_equipment_path, class: "edit-product") do %>
+  <i class="fa fa-wrench" aria-hidden="true"></i>
+  <% end %>
 </div>
 <div class="container">
   <div class="row">
@@ -21,7 +24,7 @@
         <p id="price">Daily price: €<%= @equipment.price %></p>
       </div>
       <div class="product-map">
-        <div id="map" style="height: 300px;">
+        <div id="product-map" style="height: 300px;">
         </div>
       </div>
     </div>
@@ -39,18 +42,17 @@
       </div>
     </div>
   </div>
+  <%= link_to("Edit page", edit_account_equipment_path, class: "btn btn-primary btn-md bottom-edit") %>
 </div>
 
 <% content_for(:after_js) do %>
 <script>
   $(document).ready(function() {
 
-    $('.datepicker').datepicker({todayHighlight: true});
-
     var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
+    handler.buildMap({ internal: { id: 'product-map' } }, function() {
+      marker = handler.addMarker(<%= raw @product_hash.to_json %>);
+      handler.bounds.extendWith(marker);
       handler.fitMapToBounds();
       if (markers.length == 0) {
         handler.getMap().setZoom(2);

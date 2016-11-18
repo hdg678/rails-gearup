@@ -27,12 +27,12 @@
     </div>
     <div class="col-xs-6">
       <div class="product-booking">
-          <p>Book this <%= @equipment.title %> </p>
+        <p>Book this <%= @equipment.title %> </p>
         <%= form_for [@equipment, @equipment.bookings.build], class: 'form form-inline' do |f| %>
         <div class="input-daterange input-group">
-          <%= f.text_field :checkin, class: 'input-sm form-control datepicker' %>
+          <%= f.date_field :pickup, class: 'input-sm form-control' %>
           <span class="input-group-addon">to</span>
-          <%= f.text_field :checkout, class: 'input-sm form-control datepicker' %>
+          <%= f.date_field :dropoff, class: 'input-sm form-control' %>
         </div>
         <%= f.submit "Book now", class: "btn btn-primary", id: "book-button" %>
         <% end %>
@@ -52,11 +52,9 @@
 <script>
   $(document).ready(function() {
 
-    $('.datepicker').datepicker({todayHighlight: true});
-
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      markers = handler.addMarkers(<%= raw @product_hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
       if (markers.length == 0) {

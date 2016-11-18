@@ -10,6 +10,9 @@ class Equipment < ApplicationRecord
 
   scope :category, -> (category) { where category: category }
 
+  validates :address, presence: true
+
+
   def self.search(params)
     results = all.within_address(params[:address])
     results = results.with_category(params[:category])

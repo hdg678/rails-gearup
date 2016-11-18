@@ -19,6 +19,16 @@
     font-weight: 100;
     font-size: 25px;
   }
+  .edit-product {
+    position: absolute;
+    bottom: 10px;
+    right: 120px;
+    font-size: 35px;
+    color: white;
+  }
+  .edit-product:hover {
+    color: #338CD2;
+  }
 }
 
 .product-description {
@@ -29,6 +39,7 @@
   }
   #description {
     color: #454849;
+    text-align: justify;
   }
   #category {
     position: absolute;
@@ -63,6 +74,21 @@
   }
 }
 
+.update-booking {
+  padding: 20px;
+  background-color: #E3E7E7;
+  margin: 20px 60px 20px 60px;
+  #book-button {
+    margin: 10px auto;
+  }
+  p {
+    font-weight: 100;
+    font-family: sans-serif;
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
 .add-picture {
   align-self: center;
   height: 150px;
@@ -74,4 +100,10 @@
   background-color: whitesmoke;
   font-family: sans-serif;
 }
+
+.bottom-edit {
+  margin: 20px;
+  align-self: center;
+}
+
 

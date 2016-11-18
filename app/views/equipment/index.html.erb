@@ -1,37 +1,20 @@
 <div class="container-fluid" style="background-color: whitesmoke">
-<div class="equipment-index-title text-center">
+  <div class="equipment-index-title text-center">
     <h2>Available <%= image_tag("gear.png") %> in <strong style="color: #338CD2;">
-    <% if params[:address] != "" %>
-    <%= params[:address].capitalize %>
-    <% else %>
-    <%= "the World" %>
-    <% end %>
+      <% if params[:address] != "" %>
+      <%= params[:address].capitalize %>
+      <% else %>
+      <%= "the World" %>
+      <% end %>
     </strong></h2>
   </div>
   <div class="row">
     <div class="col-sm-5">
       <div id="map">
-        <% content_for(:after_js) do %>
-        <script>
-          $(document).ready(function() {
-            var handler = Gmaps.build('Google');
-            handler.buildMap({ internal: { id: 'map' } }, function() {
-              markers = handler.addMarkers(<%= raw @hash.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-              if (markers.length == 0) {
-                handler.getMap().setZoom(2);
-              } else if (markers.length == 1) {
-                handler.getMap().setZoom(14);
-              }
-            });
-          });
-        </script>
-        <% end %>
       </div>
-    </div>
+      </div>
     <div class="col-sm-7 text-center">
-      <div class="cards">
+      <div class="cards fixed-cards">
         <div class="row">
           <% @equipment.each do |equipment| %>
           <div class="col-xs-12 col-sm-6">
@@ -62,3 +45,21 @@
       </div>
     </div>
   </div>
+
+  <% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+</script>
+<% end %>

@@ -11,5 +11,10 @@ class EquipmentController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+
+    @product_hash = Gmaps4rails.build_markers(@equipment) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 end

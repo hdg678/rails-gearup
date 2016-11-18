@@ -1,0 +1,11 @@
+<div class="update-booking">
+  <p>Update booking for <%= @booking.equipment.title %> </p>
+  <%= form_for [@booking], class: 'form form-inline' do |f| %>
+  <div class="input-daterange input-group">
+    <%= f.date_field :pickup, class: 'input-sm form-control' %>
+    <span class="input-group-addon">to</span>
+    <%= f.date_field :dropoff, class: 'input-sm form-control' %>
+  </div>
+  <%= f.submit "Update", class: "btn btn-primary", id: "book-button" %>
+  <% end %>
+</div>
