@@ -10,8 +10,6 @@
   <%= f.input :category, collection: Equipment::CATEGORIES %>
   <%= f.input :price %>
   <%= f.input :address %>
-  <% if @equipment.pictures.any? %>
-  <% else %>
   <%= f.input :pictures, as: :attachinary %>
   <% end %>
 
