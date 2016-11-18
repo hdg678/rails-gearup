@@ -21,6 +21,14 @@
   }
 }
 
+.card-ratings {
+  position: absolute;
+  color: white;
+  top: 18px;
+  left: 18px;
+  z-index: 1;
+}
+
 .card-picture {
   background-size: cover !important;
   height: 150px;

@@ -3,6 +3,7 @@ class Equipment < ApplicationRecord
 
   belongs_to :user
   has_many :bookings
+  has_many :reviews
   has_many :users, through: :bookings
   has_attachments :pictures
   geocoded_by :address
@@ -28,6 +29,15 @@ class Equipment < ApplicationRecord
     category.present? ? category(category) : all
   end
 
+  def average_stars
+    @review = self.reviews
+    if @review.count != 0
+      sum = @review.inject(0){|sum,review| sum + review.number }
+      @average = sum / @review.length
+    else
+      0
+    end
+  end
 end
 
 
