@@ -63,14 +63,10 @@
 
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'product-map' } }, function() {
-      marker = handler.addMarker(<%= raw @product_hash.to_json %>);
-      handler.bounds.extendWith(marker);
+      markers = handler.addMarkers(<%= raw @product_hash.to_json %>);
+      handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
+      handler.getMap().setZoom(14);
     });
   });
 </script>

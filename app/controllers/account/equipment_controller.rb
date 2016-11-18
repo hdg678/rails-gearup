@@ -6,9 +6,9 @@ class Account::EquipmentController < Account::AccountController
   end
 
   def show
-    @product_hash = Gmaps4rails.build_markers(@equipment) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
+    @product_hash = Gmaps4rails.build_markers(@equipment) do |equipment, marker|
+      marker.lat equipment.latitude
+      marker.lng equipment.longitude
     end
   end
 
