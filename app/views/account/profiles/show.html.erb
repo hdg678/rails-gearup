@@ -21,21 +21,4 @@
       <p> Member since : <%= (current_user.created_at) %></p>
     </div>
   </div>
-
-  <div class="equipment-content">
-    <p>My equipement offers:</p>
-    <ul>
-      <% current_user.equipment.each do |equipment| %>
-      <li><%= equipment.title %> ($<%= equipment.price %>)</li>
-    </ul>
-    <% end %>
-  </div>
-  <div class="bookings-content">
-    <p>My bookings:</p>
-    <ul>
-      <% current_user.bookings.each do |booking| %>
-      <li><%= booking.pickup %> <%= booking.dropoff %></li>
-    </ul>
-    <% end %>
-  </div>
 </div>

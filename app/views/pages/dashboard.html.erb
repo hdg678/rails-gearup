@@ -3,11 +3,11 @@
     <h2>My booked <%= image_tag("gear.png") %></h2>
   </div>
   <div class="bookings">
-    <%= @user.bookings.each do |booking| %>
+    <% @user.bookings.each do |booking| %>
     <div class="product">
       <div class='product-upvote'>
         <i class="fa fa-calendar" aria-hidden="true"></i>
-        <div class='product-count'><%= @user.bookings.first.pickup %></div>
+        <div class='product-count'><%= booking.pickup %></div>
       </div>
       <% if booking.equipment.pictures? %>
       <%= cl_image_tag booking.equipment.pictures.first.path, height: 100, width: 200, crop: :fill, class: "product-image hidden-xs"; %>
